@@ -3,9 +3,7 @@ import math
 
 # create the tree using the frequencies using huffmann algorithm
 def makeTree(list):
-	tree = []
 	sum =0
-	count = 0
 
 	for i in list:
 		sum += i[1]
@@ -50,16 +48,21 @@ def makeTree(list):
 			list.pop(min1)
 			list.pop(min2)
 
-		count += 1
 
 	z =copy.deepcopy(list[0])
-
-	name = z[0]+ list[1][0]
-	val = z[1] + list[1][1]
+	if(z[1] < list[1][1]):
+		name = z[0]+ list[1][0]
+		val = z[1] + list[1][1]
 
 	
-	list.append([name,val,[z,list[1]]])
+		list.append([name,val,[z,list[1]]])
+	else:
+		name = list[1][0] + z[0]
+		val = list[1][1] + z[1]
 
+	
+		list.append([name,val,[list[1],z]])
+	
 	list.pop(0)
 	list.pop(0)
 
