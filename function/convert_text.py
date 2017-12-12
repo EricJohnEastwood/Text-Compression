@@ -33,7 +33,7 @@ def convertText(filename,base_dir):
 	return final
 
 
-# no particular use but helpful as the brackets of the tree seemed to be having non uniformity
+# No particular use(extra code) but helpful as the brackets of the tree seemed to be having non uniformity
 def findFirst(binary,tree,text,Tree):
 	[v,_,subtree] = tree[0]
 	st =subtree

@@ -31,6 +31,10 @@ def convertToBinary(tree,location):
 	# print(sys.getsizeof(usingWords))
 	length = sys.getsizeof(usingWords)//factor_size
 	# print(length)
+	
+
+	# for loop cut the whole data and takes pieces of getsize "around factor size"
+	# this loop for all full size pieces
 	for i in range(len(usingWords)):
 		bin = find(usingWords[i],tree,bin)
 		if(sys.getsizeof(bin) >= factor_size  and sys.getsizeof(bin) < factor_size + sys.getsizeof(max_string) and length != 0):
@@ -51,6 +55,8 @@ def convertToBinary(tree,location):
 			break
 
 	bin = ''
+
+	#this loops takes into account the last part which is smaller than factor size
 	for i in range(len(usingWords)):
 		bin = find(usingWords[i],tree,bin)
 
@@ -77,7 +83,7 @@ def find(value,tree,bin):
 	else:
 		[v,_,subtree] = tree[0]
 		st =subtree
-
+		# if found in left hand put 0 else put 1
 		if value in st[0][0]:
 			bin += '0'
 			return find(value,[st[0]],bin)
